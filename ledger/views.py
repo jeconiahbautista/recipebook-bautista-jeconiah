@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from .context import recipe_list_context, recipe_1_context, recipe_2_context
 
 def recipe_list(request):
