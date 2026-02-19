@@ -1,12 +1,21 @@
 from django.shortcuts import render
-from .context import recipe_list_context, recipe_1_context, recipe_2_context
+from .models import Recipe
 
 def recipe_list(request):
-    return render(request, "recipe-list.html", recipe_list_context())
+    recipes = Recipe.objects.all()
 
-def recipe_1(request):
-    return render(request, "recipe.html", recipe_1_context())
+    ctx = {
+        "recipes": recipes
+    }
 
-def recipe_2(request):
-    return render(request, "recipe.html", recipe_2_context())
+    return render(request, "recipe-list.html", ctx)
+
+def recipe_detail(request, pk):
+    recipe = Recipe.objects.get(pk=pk)
+
+    ctx = {
+        "recipe": recipe
+    }
+
+    return render(request, "recipe.html", ctx)
 
