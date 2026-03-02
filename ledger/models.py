@@ -1,6 +1,6 @@
 from django.db import models
 from django.urls import reverse
-from useraccounts.models import Profile 
+from useraccounts.models import Profile
 
 
 class Ingredient(models.Model):
@@ -8,9 +8,9 @@ class Ingredient(models.Model):
 
     def __str__(self):
         return self.name
-    
+
     def get_absolute_url(self):
-        return reverse('ledger:ingredient-detail', args=[self.pk])
+        return reverse("ledger:ingredient-detail", args=[self.pk])
 
 
 class Recipe(models.Model):
@@ -18,7 +18,7 @@ class Recipe(models.Model):
     author = models.ForeignKey(
         Profile,
         on_delete=models.CASCADE,
-        related_name='recipes',
+        related_name="recipes",
     )
 
     created_on = models.DateTimeField(auto_now_add=True)
@@ -26,9 +26,9 @@ class Recipe(models.Model):
 
     def __str__(self):
         return self.name
-    
+
     def get_absolute_url(self):
-        return reverse('ledger:recipe-detail', args=[self.pk])
+        return reverse("ledger:recipe-detail", args=[self.pk])
 
 
 class RecipeIngredient(models.Model):
@@ -37,11 +37,11 @@ class RecipeIngredient(models.Model):
     ingredient = models.ForeignKey(
         Ingredient,
         on_delete=models.CASCADE,
-        related_name='recipe',
+        related_name="recipe",
     )
 
     recipe = models.ForeignKey(
         Recipe,
         on_delete=models.CASCADE,
-        related_name='ingredients',
+        related_name="ingredients",
     )
