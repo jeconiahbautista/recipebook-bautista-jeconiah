@@ -1,9 +1,14 @@
-<html>
-    <body>
+{% extends 'base.html' %}
+
+{% block header %}
+<h3>Login Page</h3>
+{% endblock %}
+
+{% block body %}
         <form method="post">
             {% csrf_token %}
-            {{ from.as_p }}
+            {{ form.as_p }}
             <button type="submit">Login</button>
         </form>
-    </body>
-</html>
+        <a href="{% url 'password_reset' %}">Forgot password?</a>
+{% endblock %}

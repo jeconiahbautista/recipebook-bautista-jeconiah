@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 
-{% block body %}
+{% block header %}
+<h3>Recipe List</h3>
+{% endblock %}
 
+{% block body %}
 <ul>
     {% for recipe in recipes %}
         <li><a href= "{{ recipe.get_absolute_url }}" >{{ recipe.name }}</a></li>
