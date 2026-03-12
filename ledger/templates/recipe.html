@@ -7,9 +7,12 @@
 {% block body %}
 <h3>{{ recipe.name }}</h3>
 <p><strong>{{ recipe.author.name }}</strong></p>
+<a href="{% url 'ledger:recipe-add_image' recipe.pk %}">Add Image</a>
+
 {% for image in recipe.images.all %}
 <img src="{{ image.recipe_image.url }}" alt="{{ image.description }}">
 {% endfor %}
+
 <ul>
     {% for ingredient in recipe.ingredients.all %}
         <li> {{ ingredient.ingredient.name }}: {{ingredient.quantity}}</li>

@@ -28,4 +28,5 @@ class RecipeAdmin(admin.ModelAdmin):
 
 
 admin.site.register(RecipeIngredient)
+admin.site.register(RecipeImage)
 admin.site.register(Recipe, RecipeAdmin)
