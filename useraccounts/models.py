@@ -8,5 +8,6 @@ class Profile(models.Model):
     name = models.CharField(max_length=50)
     bio = models.TextField(validators=[MinLengthValidator(256)])
 
-
+    def __str__(self):
+        return self.name
 # Create your models here.
