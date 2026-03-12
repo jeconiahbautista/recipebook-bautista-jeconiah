@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
-from .models import Recipe
 from django.contrib.auth.decorators import login_required
+
+from .models import Recipe
 from .forms import RecipeForm, RecipeImageForm
 
 
